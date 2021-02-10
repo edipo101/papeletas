@@ -1,0 +1,83 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    box-sizing: border-box;
+}
+@page {
+    margin: 1cm;
+}
+p, h1, h2{
+    margin:0;
+    padding: 0;
+}
+
+/* Header */
+.header{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+    display: inline-block;
+    position: relative;
+}
+.logo-gams{
+    width: 5%;
+    position: absolute;
+    top:10px;
+    left: 10px;
+}
+.logo-gestion{
+    width: 10%;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+.img-logo{
+    width: 100%;
+    margin-top: -5px;
+}
+
+.titulo, .subtitulo{
+    text-align: center;
+    font-size: 14pt;
+}
+.subtitulo{
+    font-size: 12pt;
+}
+
+/* Informacion */
+.info{
+    border: 1px solid #000;
+    width: 100%;
+    margin:5px 0;
+}
+.info table{
+    width: 100%;
+    padding: 10px;
+}
+.info-title{
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Detalles */
+.detalle{
+    width: 100%;
+    margin-top: 20px;
+}
+.detalle table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detalle table tr td, .detalle table tr th{
+    border: 1px solid #000;
+    padding: 12px;
+}
+.detalle table tr th{
+    background-color: #e4e4e4;
+}
+
+.center{
+    text-align: center;
+}

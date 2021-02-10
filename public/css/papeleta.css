@@ -1,0 +1,178 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    box-sizing: border-box;
+}
+@page {
+    margin: 0.5cm;
+}
+p, h1, h2{
+    margin:0;
+    padding: 2px;
+}
+table{
+    border: none;
+    border-collapse: collapse;
+}
+.pt-9{
+    padding-top: 40px;
+}
+
+/* Descomentar para testeo */
+/* body{
+    background-color: red;
+} */
+
+/* Papeleta */
+.papeleta{
+    height: 16cm;
+    /* Descomentar para testeo */
+    /* background-color: yellow; */
+}
+
+.page-break{
+    page-break-after: always;
+}
+
+/* Header */
+.header{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+    display: inline-block;
+    position: relative;
+}
+.empresa{
+    width: 55%;
+    text-align: center;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+.empresa-titulo, .empresa-subtitulo{
+    font-weight: normal;
+}
+.empresa-subtitulo, .direccion{
+    font-size: 9pt;
+}
+.direccion{
+    font-style: italic;
+}
+.info{
+    width: 35%;
+    display: inline-block;
+    text-align: right;
+}
+.info p strong{
+    padding-right: 15px;
+}
+.fecha{
+    font-weight: 700;
+    font-style: italic;
+}
+
+.logo{
+    width: 7%;
+    position: absolute;
+    top:13px;
+    right: 10px;
+}
+.img-logo{
+    width: 100%;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 14pt;
+}
+
+/* Informacion */
+.info-papeleta, .info-funcionario{
+    border: 1px solid #000;
+    width: 100%;
+    margin:5px 0;
+    padding: 15px;
+}
+.info-papeleta table, .info-funcionario table{
+    width: 100%;
+}
+.papeleta-titulo{
+    font-weight: 700;
+}
+.right{
+    text-align: right;
+}
+/* Clear-fix */
+.clear-fix{
+    clear: both;
+}
+
+/* Detalles */
+.detalle{
+    width: 100%;
+}
+.ingresos, .descuentos{
+    width: 49.7%;
+    border: 1px solid #000;
+    height: 125px;
+    margin-bottom: 5px;
+}
+.ingresos table, .descuentos table{
+    width: 100%;
+}
+.ingresos{
+    float: left;
+}
+.descuentos{
+    float: right;
+}
+.ingresos table tr th, .descuentos table tr th{
+    background-color: #e4e4e4;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    padding: 2px 0;
+}
+
+.ingresos table tr td, .descuentos table tr td{
+    padding-left: 30px;
+}
+.ingresos table tr td:nth-child(2), .descuentos table tr td:nth-child(2){
+    padding-right: 30px;
+    text-align: right;
+}
+
+/* Totales */
+.total{
+    width: 100%;
+    border:1px solid #000;
+    padding: 20px 20px 5px 20px;
+    margin-bottom: 5px;
+}
+.total table{
+    width: 100%;
+}
+.pr-2{
+    padding-right: 20px;
+}
+.pr-4{
+    padding-right: 35px;
+}
+.total-literal{
+    text-transform: uppercase;
+    padding-top: 5px;
+    padding-left: -15px;
+}
+
+/* Firmas */
+.firmas{
+    width: 100%;
+    border:1px solid #000;
+    padding: 10px;
+}
+.firmas table{
+    width: 100%;;
+}
+.firmas table tr td{
+    padding: 5px 0;
+}
