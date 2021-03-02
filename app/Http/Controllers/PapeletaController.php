@@ -32,7 +32,12 @@ class PapeletaController extends Controller
                         ->join('planillas','planillas.id','=','papeletas.planilla_id')
                         ->join('funcionarios','funcionarios.id','=','papeletas.funcionario_id')
                         ->join('modalidads','modalidads.id','=','papeletas.modalidad_id')
-                        ->select('papeletas.id','planillas.id as planilla_id','planillas.nroplanilla', 'modalidads.nombre AS modalidad','funcionarios.nombre','funcionarios.carnet','funcionarios.exp','funcionarios.fecha_ingreso','papeletas.cargo','papeletas.item', 'papeletas.dias_trabajados','papeletas.totalingresos','papeletas.totaldescuento','papeletas.liquidopagable','papeletas.entregado')
+                        ->select('papeletas.id','planillas.id as planilla_id','planillas.nroplanilla',
+                         'planillas.gestion',
+                         'modalidads.nombre AS modalidad','funcionarios.nombre','funcionarios.carnet','funcionarios.exp','funcionarios.fecha_ingreso',
+                         'funcionarios.fechaingr_2021',
+                         'papeletas.cargo','papeletas.item', 'papeletas.dias_trabajados','papeletas.totalingresos','papeletas.totaldescuento',
+                         'papeletas.liquidopagable','papeletas.entregado')                       
                         ->get();
         return Datatables::of($papeletas)
                     ->addIndexColumn()
@@ -44,10 +49,17 @@ class PapeletaController extends Controller
                     //                 ? '<span class="label label-success">'.$papeleta->fullentregado.'</span>'
                     //                 : '<span class="label label-danger">'.$papeleta->fullentregado.'</span>';
                     // })
+                    
+                    // ->editColumn('fecha_ingreso', function($papeleta){
+                    //     return $papeleta->fecha_ingreso === NULL 
+                    //             ? 'S/F'
+                    //             : date('d/m/Y', strtotime($papeleta->fecha_ingreso));
+                    // })
                     ->editColumn('fecha_ingreso', function($papeleta){
-                        return $papeleta->fecha_ingreso === NULL 
-                                ? 'S/F'
-                                : date('d/m/Y', strtotime($papeleta->fecha_ingreso));
+                        $gestion = $papeleta->gestion;
+                        $fecha_ingreso = ($gestion == 2021) ? $papeleta->fechaingr_2021 : $papeleta->fecha_ingreso;
+
+                        return ($fecha_ingreso === NULL) ? 's/f': date('d/m/Y', strtotime($fecha_ingreso));
                     })
                     ->editColumn('totalingresos', function($papeleta){
                         return number_format($papeleta->totalingresos,2,'.','')." Bs.";
@@ -89,6 +101,7 @@ class PapeletaController extends Controller
                         });
         $empresa = Empresa::find(1);
         $pdf = App::make('snappy.pdf.wrapper');
+        return view('papeletas.imprimir.papeleta',compact('papeletas','empresa'));
         $pdf->loadView('papeletas.imprimir.papeleta',compact('papeletas','empresa'));
         return $pdf->setPaper('letter')->stream('papeleta.pdf');
     }

@@ -32,7 +32,13 @@
         <table>
             <tr>
                 <td class="right papeleta-titulo">Fecha de Ingreso:</td>
-                <td colspan="5">{{ $papeleta->funcionario->fecha_ingreso->format('d/m/Y') }}</td>
+                @php
+                $gestion = $papeleta->planilla->gestion;
+                $fecha = ($gestion == 2021) ? $papeleta->funcionario->fechaingr_2021 : $papeleta->funcionario->fecha_ingreso; 
+                $fecha = (is_null($fecha)) ? 's/f' : date('d/m/Y', strtotime($fecha));
+                @endphp
+                {{-- <td colspan="5">{{ $papeleta->funcionario->fecha_ingreso->format('d/m/Y') }}</td> --}}
+                <td colspan="5">{{ $fecha }}</td>
             </tr>
             <tr>
                 <td width="25%" class="right papeleta-titulo">Correspondiente al mes de:</td>

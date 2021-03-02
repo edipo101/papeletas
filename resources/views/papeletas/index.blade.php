@@ -93,6 +93,7 @@
         columns: [
             { data: 'id'},
             { data: 'nroplanilla'},
+            // { data: 'gestion'},
             { data: 'carnet'},
             { data: 'nombre'},
             { data: 'cargo'},
